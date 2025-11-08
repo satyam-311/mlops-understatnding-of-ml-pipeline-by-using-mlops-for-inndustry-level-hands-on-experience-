@@ -23,3 +23,21 @@ Expermients with DVC:
 16> Do "dvc exp remove {exp-name}" to remove exp (optional) | "dvc exp apply {exp-name}" to reproduce prev exp
 17> Change params, re-run code (produce new experiments)
 18> Now git add, commit, push
+
+
+
+adding remote s3 storage to dvc
+
+1. login to awsd console
+2. create IAM user (straight forword process)
+3.create s3 (enter unique name and create)
+  pip install dvc[s3]
+  pip install awscli
+ # Initialize DVC in your repo – dvc init (not if already Initialize)
+4.Configure AWS credentials – aws configure
+5. Add S3 remote storage – dvc remote add -d myremote s3://mybucket/path
+6. commit to remote – dvc commit
+7. Push data to remote storage – dvc push
+
+ >Pull data from remote – dvc pull
+ >Verify remote list – dvc remote list
